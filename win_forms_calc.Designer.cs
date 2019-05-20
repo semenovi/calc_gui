@@ -29,19 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(calc_form));
-			
-            // main display
             this.screen = new System.Windows.Forms.TextBox();
-
-            // tool strip
             this.strip = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.strip.SuspendLayout();
-
-            // digit inputs
             this.btn_a = new System.Windows.Forms.Button();
             this.btn_b = new System.Windows.Forms.Button();
             this.btn_c = new System.Windows.Forms.Button();
@@ -59,34 +52,25 @@
             this.btn_8 = new System.Windows.Forms.Button();
             this.btn_9 = new System.Windows.Forms.Button();
             this.btn_dot = new System.Windows.Forms.Button();
-
-            // functions button
-            // trig
             this.sin = new System.Windows.Forms.Button();
             this.cos = new System.Windows.Forms.Button();
             this.tg = new System.Windows.Forms.Button();
             this.const_pi = new System.Windows.Forms.Button();
-            // alt modifier
             this.alt = new System.Windows.Forms.Button();
-            // brackets buttons
             this.open_brackets = new System.Windows.Forms.Button();
             this.close_brackets = new System.Windows.Forms.Button();
-            // text edit
             this.change_sign = new System.Windows.Forms.Button();
             this.clear_current = new System.Windows.Forms.Button();
             this.clear_all = new System.Windows.Forms.Button();
             this.backspace = new System.Windows.Forms.Button();
-            // algebra
             this.ln = new System.Windows.Forms.Button();
             this.pow = new System.Windows.Forms.Button();
             this.factorial = new System.Windows.Forms.Button();
-            // arithmetic
             this.plus = new System.Windows.Forms.Button();
             this.minus = new System.Windows.Forms.Button();
             this.product = new System.Windows.Forms.Button();
             this.divide = new System.Windows.Forms.Button();
             this.calculate = new System.Windows.Forms.Button();
-            // number systems selectors
             this.hex_switch = new System.Windows.Forms.Button();
             this.dec_switch = new System.Windows.Forms.Button();
             this.oct_switch = new System.Windows.Forms.Button();
@@ -95,17 +79,13 @@
             this.dec_text = new System.Windows.Forms.TextBox();
             this.oct_text = new System.Windows.Forms.TextBox();
             this.bin_text = new System.Windows.Forms.TextBox();
-            // memory operations
             this.add_mem_to_current = new System.Windows.Forms.Button();
             this.plus_to_mem = new System.Windows.Forms.Button();
             this.min_to_mem = new System.Windows.Forms.Button();
-
-            // decorator
             this.decorator_pic = new System.Windows.Forms.PictureBox();
-			
+            this.strip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.decorator_pic)).BeginInit();
             this.SuspendLayout();
-			
             // 
             // screen
             // 
@@ -170,6 +150,7 @@
             this.btn_a.TabIndex = 5;
             this.btn_a.Text = "A";
             this.btn_a.UseVisualStyleBackColor = true;
+            this.btn_a.Click += new System.EventHandler(this.btn_a_Click);
             // 
             // btn_b
             // 
@@ -179,6 +160,7 @@
             this.btn_b.TabIndex = 11;
             this.btn_b.Text = "B";
             this.btn_b.UseVisualStyleBackColor = true;
+            this.btn_b.Click += new System.EventHandler(this.btn_b_Click);
             // 
             // btn_c
             // 
@@ -188,6 +170,7 @@
             this.btn_c.TabIndex = 6;
             this.btn_c.Text = "C";
             this.btn_c.UseVisualStyleBackColor = true;
+            this.btn_c.Click += new System.EventHandler(this.btn_c_Click);
             // 
             // btn_d
             // 
@@ -197,6 +180,7 @@
             this.btn_d.TabIndex = 12;
             this.btn_d.Text = "D";
             this.btn_d.UseVisualStyleBackColor = true;
+            this.btn_d.Click += new System.EventHandler(this.btn_d_Click);
             // 
             // btn_e
             // 
@@ -206,6 +190,7 @@
             this.btn_e.TabIndex = 7;
             this.btn_e.Text = "E";
             this.btn_e.UseVisualStyleBackColor = true;
+            this.btn_e.Click += new System.EventHandler(this.btn_e_Click);
             // 
             // btn_f
             // 
@@ -215,6 +200,7 @@
             this.btn_f.TabIndex = 13;
             this.btn_f.Text = "F";
             this.btn_f.UseVisualStyleBackColor = true;
+            this.btn_f.Click += new System.EventHandler(this.btn_f_Click);
             // 
             // btn_0
             // 
@@ -426,6 +412,7 @@
             this.backspace.TabIndex = 28;
             this.backspace.Text = "←";
             this.backspace.UseVisualStyleBackColor = true;
+            this.backspace.Click += new System.EventHandler(this.backspace_Click);
             // 
             // ln
             // 
@@ -473,6 +460,7 @@
             this.minus.TabIndex = 36;
             this.minus.Text = "‒";
             this.minus.UseVisualStyleBackColor = true;
+            this.minus.Click += new System.EventHandler(this.minus_Click);
             // 
             // product
             // 
@@ -510,6 +498,7 @@
             this.hex_switch.Text = "HEX:";
             this.hex_switch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.hex_switch.UseVisualStyleBackColor = true;
+            this.hex_switch.Click += new System.EventHandler(this.hex_switch_Click);
             // 
             // dec_switch
             // 
@@ -520,6 +509,7 @@
             this.dec_switch.Text = "DEC:";
             this.dec_switch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dec_switch.UseVisualStyleBackColor = true;
+            this.dec_switch.Click += new System.EventHandler(this.dec_switch_Click);
             // 
             // oct_switch
             // 
@@ -530,6 +520,7 @@
             this.oct_switch.Text = "OCT:";
             this.oct_switch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.oct_switch.UseVisualStyleBackColor = true;
+            this.oct_switch.Click += new System.EventHandler(this.oct_switch_Click);
             // 
             // bin_switch
             // 
@@ -540,6 +531,7 @@
             this.bin_switch.Text = "BIN:";
             this.bin_switch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bin_switch.UseVisualStyleBackColor = true;
+            this.bin_switch.Click += new System.EventHandler(this.bin_switch_Click);
             // 
             // hex_text
             // 
@@ -615,7 +607,7 @@
             // 
             // decorator_pic
             // 
-            this.decorator_pic.Image = global::win_forms_calc.Properties.Resources.pic;
+            this.decorator_pic.Image = global::Properties.Resources.pic;
             this.decorator_pic.Location = new System.Drawing.Point(199, 129);
             this.decorator_pic.Name = "decorator_pic";
             this.decorator_pic.Size = new System.Drawing.Size(97, 104);
@@ -627,14 +619,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(298, 235);
-			
-            // main display
             this.Controls.Add(this.screen);
-			
-            // tool strip
             this.Controls.Add(this.strip);
-			
-            // digit inputs
             this.Controls.Add(this.btn_a);
             this.Controls.Add(this.btn_b);
             this.Controls.Add(this.btn_c);
@@ -652,34 +638,25 @@
             this.Controls.Add(this.btn_8);
             this.Controls.Add(this.btn_9);
             this.Controls.Add(this.btn_dot);
-			
-            // functions button
-            // trig
             this.Controls.Add(this.sin);
             this.Controls.Add(this.cos);
             this.Controls.Add(this.tg);
             this.Controls.Add(this.const_pi);
-            // alt modifier
             this.Controls.Add(this.alt);
-            // brackets buttons
             this.Controls.Add(this.open_brackets);
             this.Controls.Add(this.close_brackets);
-            // text edit
             this.Controls.Add(this.change_sign);
             this.Controls.Add(this.clear_current);
             this.Controls.Add(this.clear_all);
             this.Controls.Add(this.backspace);
-            // algebra
             this.Controls.Add(this.ln);
             this.Controls.Add(this.pow);
             this.Controls.Add(this.factorial);
-            // arithmetic
             this.Controls.Add(this.plus);
             this.Controls.Add(this.minus);
             this.Controls.Add(this.product);
             this.Controls.Add(this.divide);
             this.Controls.Add(this.calculate);
-            // number systems selectors
             this.Controls.Add(this.hex_switch);
             this.Controls.Add(this.dec_switch);
             this.Controls.Add(this.oct_switch);
@@ -688,14 +665,10 @@
             this.Controls.Add(this.dec_text);
             this.Controls.Add(this.oct_text);
             this.Controls.Add(this.bin_text);
-            // memory operations
             this.Controls.Add(this.add_mem_to_current);
             this.Controls.Add(this.plus_to_mem);
             this.Controls.Add(this.min_to_mem);
-			
-            // decorator
             this.Controls.Add(this.decorator_pic);
-			
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.strip;
