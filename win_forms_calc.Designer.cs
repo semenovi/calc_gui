@@ -319,6 +319,7 @@
             this.sin.TabIndex = 3;
             this.sin.Text = "sin";
             this.sin.UseVisualStyleBackColor = true;
+            this.sin.Click += new System.EventHandler(this.sin_Click);
             // 
             // cos
             // 
@@ -379,6 +380,7 @@
             // 
             // change_sign
             // 
+            this.change_sign.Enabled = false;
             this.change_sign.Location = new System.Drawing.Point(64, 203);
             this.change_sign.Name = "change_sign";
             this.change_sign.Size = new System.Drawing.Size(32, 32);

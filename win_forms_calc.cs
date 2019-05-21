@@ -152,8 +152,7 @@ namespace win_forms_calc
         {
             if (input_type == DIGIT_INPUT_)
             {
-                screen_text = screen_text + current_number.ToString();
-                current_number = 0;
+                stop_digit_input();
                 input_type = OPERATOR_INPUT_;
                 screen_text = screen_text + operator_;
             }
@@ -169,6 +168,15 @@ namespace win_forms_calc
                 }
                 input_type = OPERATOR_INPUT_;
                 screen_text = screen_text + operator_;
+            }
+        }
+
+        public void stop_digit_input()
+        {
+            if (current_number != 0)
+            {
+                screen_text = screen_text + current_number.ToString();
+                current_number = 0;
             }
         }
 
@@ -286,7 +294,11 @@ namespace win_forms_calc
 
         private void btn_0_Click(object sender, EventArgs e)
         {
-            add_digit(current_system, 0);
+            screen_text = screen_text + "0";
+            /*
+             * don't work.
+             * add_digit(current_system, 0);
+            */
             update_screen();
             update_switches();
         }
@@ -317,28 +329,35 @@ namespace win_forms_calc
 
         private void backspace_Click(object sender, EventArgs e)
         {
-            if (screen_text.Length > 1 || current_number != 0)
+            if (screen_text.Length != 0 || current_number != 0)
             {
-                add_operator("");
                 short result = 0;
                 Boolean bool_res = false;
+                stop_digit_input();
                 bool_res = Int16.TryParse(screen_text[screen_text.Length - 1].ToString(), out result);
-                if (bool_res == false)
+
+                if (input_type == DIGIT_INPUT_)
                 {
-                    while (bool_res != true)
-                    {
-                        screen_text = screen_text.Substring(0, screen_text.Length - 1);
-                        bool_res = Int16.TryParse(screen_text[screen_text.Length - 1].ToString(), out result);
-                    }
+
                 }
-                else
+
+                if (bool_res == true)
                 {
                     screen_text = screen_text.Substring(0, screen_text.Length - 1);
                 }
-            }
-            else
-            {
-                screen_text = "";
+                else
+                {
+                    bool_res = false;
+                    while (bool_res == false)
+                    {
+                        screen_text = screen_text.Substring(0, screen_text.Length - 1);
+                        if (screen_text.Length == 0)
+                        {
+                            break;
+                        }
+                        bool_res = Int16.TryParse(screen_text[screen_text.Length - 1].ToString(), out result);
+                    }
+                }
             }
             update_screen();
             update_switches();
@@ -354,6 +373,11 @@ namespace win_forms_calc
         {
             add_operator("-");
             update_screen();
+        }
+
+        private void sin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
