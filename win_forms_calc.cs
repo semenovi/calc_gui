@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace win_forms_calc
 {
     public partial class calc_form : Form
     {
+        [DllImport("calc_dll.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern double parse_n_calculate(string _input);
         string screen_text = "";
         Int32 current_number = 0;
         Boolean input_type = false;
@@ -29,6 +32,7 @@ namespace win_forms_calc
 
         public void update_switches()
         {
+            dec_text.Text = Convert.ToString(parse_n_calculate(screen_text));
             /*
             hex_text.Text = Convert.ToString(screen_dec, 16);
             dec_text.Text = screen_dec.ToString();
